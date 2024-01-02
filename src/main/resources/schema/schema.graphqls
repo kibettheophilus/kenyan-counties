@@ -1,0 +1,12 @@
+type Query {
+    getCounties(name:String): [County]
+}
+type County{
+    code: Int
+    name: String
+    constituencies:[Constituency]
+}
+type Constituency {
+    name: String
+    wards: [String]
+}
