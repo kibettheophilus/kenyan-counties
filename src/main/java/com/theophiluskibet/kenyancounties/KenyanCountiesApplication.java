@@ -8,6 +8,7 @@ public class KenyanCountiesApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(KenyanCountiesApplication.class, args);
+        System.out.println("Hello From Kenyan counties api");
     }
 
 }
