@@ -1,12 +1,33 @@
 type Query {
-    getCounties(name:String): [County]
+    getCounties(name:String): CountyResponse
 }
+type Mutation {
+    addCounty(county: CountyInput): CountyResponse
+}
+
 type County{
-    code: Int
+    code: String
     name: String
     constituencies:[Constituency]
 }
 type Constituency {
+    name: String
+    wards: [String]
+}
+
+input CountyInput{
+    code: String!
+    name: String
+    constituencies:[ConstituencyInput]
+}
+
+type CountyResponse{
+    status: Boolean
+    message: String
+    details: [County]
+}
+
+input ConstituencyInput {
     name: String
     wards: [String]
 }
