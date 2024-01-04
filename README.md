@@ -63,9 +63,10 @@ query{
 - Spring Boot
 - Java
 - Grapqhl - Using [DGS framework](https://netflix.github.io/dgs/)
+- MongoDb
 
 ## Screenshots
+<img width="1429" alt="Screenshot 2024-01-04 at 13 13 15" src="https://github.com/kibettheophilus/kenyan-counties/assets/61080898/50872b4b-4df1-42bf-847f-b34704a4b19a">
+<img width="1429" alt="Screenshot 2024-01-04 at 13 13 49" src="https://github.com/kibettheophilus/kenyan-counties/assets/61080898/0d3be9ba-b1cd-46ee-9b4f-d0c477e52ee5">
+<img width="1429" alt="Screenshot 2024-01-04 at 13 14 03" src="https://github.com/kibettheophilus/kenyan-counties/assets/61080898/bf3ff8ae-f36b-4fb7-a2d4-91ef771192af">
 
-![Screenshot 2024-01-04 at 13.13.15.png](..%2F..%2FDesktop%2FScreenshot%202024-01-04%20at%2013.13.15.png)
-![Screenshot 2024-01-04 at 13.13.49.png](..%2F..%2FDesktop%2FScreenshot%202024-01-04%20at%2013.13.49.png)
-![Screenshot 2024-01-04 at 13.14.03.png](..%2F..%2FDesktop%2FScreenshot%202024-01-04%20at%2013.14.03.png)
