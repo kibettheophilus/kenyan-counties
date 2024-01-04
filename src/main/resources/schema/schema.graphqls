@@ -1,8 +1,8 @@
 type Query {
-    getCounties(name:String): CountyResponse
+    getCounties(name:String): CountyResponse!
 }
 type Mutation {
-    addCounty(county: CountyInput): CountyResponse
+    addCounty(county: CountyInput!): CountyResponse!
 }
 
 type County{
