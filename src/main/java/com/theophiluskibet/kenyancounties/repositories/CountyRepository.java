@@ -1,6 +1,6 @@
 package com.theophiluskibet.kenyancounties.repositories;
 
-import com.theophiluskibet.kenyancounties.models.CountyEntity;
+import com.theophiluskibet.kenyancounties.entity.CountyEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
