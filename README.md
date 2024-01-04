@@ -8,7 +8,7 @@
  git clone https://github.com/kibettheophilus/kenyan-counties.git
 ```
 
-- Create a database in MongoDB and add the uri to the `application.yml`
+- Create a database in MongoDB with name `counties` and add the uri to the `application.yml`
 - Run the project
 
 ```
@@ -17,8 +17,29 @@
 
 - Open [http://localhost:8080/graphiql](http://localhost:8080/graphiql) to access using graphiql(or connect
   to http://localhost:8080/graphql using postman or altair Graphql Client )
+- Add data to the db using the `addCounty` `mutation`, below is a sample
 
-###### Sample query
+```
+mutation {
+  addCounty(county: {
+    code:"001",
+    name:"Mombasa"
+    constituencies: {
+      name: "Jomvu",
+      wards:"Shanzu South, Shanzu North"
+    }
+  }){
+  status
+    message
+    details {
+      code
+      name
+    }
+  }
+}
+```
+
+- Fetch data using the `getCounties` `query`, below is a sample
 
  ```
 query{
@@ -26,13 +47,15 @@ query{
     status
     message
     details {
+      name
+      code
       constituencies {
         name
+        wards
       }
     }
   }
 }
-
 ```
 
 ## Technologies
