@@ -7,8 +7,8 @@ import com.netflix.graphql.dgs.InputArgument;
 import com.theophiluskibet.graphql.types.County;
 import com.theophiluskibet.graphql.types.CountyInput;
 import com.theophiluskibet.graphql.types.CountyResponse;
-import com.theophiluskibet.kenyancounties.models.Constituency;
-import com.theophiluskibet.kenyancounties.models.CountyEntity;
+import com.theophiluskibet.kenyancounties.dtos.Constituency;
+import com.theophiluskibet.kenyancounties.entity.CountyEntity;
 import com.theophiluskibet.kenyancounties.repositories.CountyRepository;
 
 import java.util.List;
@@ -20,6 +20,7 @@ public class CountyDataFetcher {
     private final CountyRepository countyRepository;
 
     public CountyDataFetcher(CountyRepository countyRepository) {
+
         this.countyRepository = countyRepository;
     }
 
@@ -37,7 +38,13 @@ public class CountyDataFetcher {
         return new CountyResponse(
                 true,
                 "County fetched",
-                countyResponseMapper(countyRepository.findAll().stream().filter(county -> county.getName().contains(name)).collect(Collectors.toList())));
+                countyResponseMapper(
+                        countyRepository
+                                .findAll()
+                                .stream()
+                                .filter(
+                                        county -> county.getName().contains(name)
+                                ).collect(Collectors.toList())));
     }
 
     @DgsMutation
@@ -55,10 +62,21 @@ public class CountyDataFetcher {
     private CountyEntity countyInputMapper(CountyInput input) {
         return new CountyEntity(input.getCode(),
                 input.getName(),
-                input.getConstituencies().stream().map(cons -> new Constituency(cons.getName(), cons.getWards())).collect(Collectors.toList()));
+                input.getConstituencies()
+                        .stream()
+                        .map(cons -> new Constituency(cons.getName(), cons.getWards())
+                        ).collect(Collectors.toList()));
     }
 
     private List<com.theophiluskibet.graphql.types.County> countyResponseMapper(List<CountyEntity> countyEntity) {
-        return countyEntity.stream().map(entity -> new County(entity.getCode(), entity.getName(), entity.getConstituencies().stream().map(c -> new com.theophiluskibet.graphql.types.Constituency(c.getName(), c.getWards())).collect(Collectors.toList()))).collect(Collectors.toList());
+        return countyEntity
+                .stream()
+                .map(
+                        entity -> new County(
+                                entity.getCode(), entity.getName(), entity.getConstituencies()
+                                .stream().map(
+                                        c -> new com.theophiluskibet.graphql.types.Constituency(c.getName(), c.getWards()))
+                                .collect(Collectors.toList())))
+                .collect(Collectors.toList());
     }
 }

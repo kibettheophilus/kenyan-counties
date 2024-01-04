@@ -1,5 +1,6 @@
-package com.theophiluskibet.kenyancounties.models;
+package com.theophiluskibet.kenyancounties.entity;
 
+import com.theophiluskibet.kenyancounties.dtos.Constituency;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
