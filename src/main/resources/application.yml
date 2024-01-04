@@ -1,5 +1,5 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://kibettheophilus:mom001@counties.7dn526i.mongodb.net/?retryWrites=true&w=majority
+      uri: # add the mongo connection uri
       database: counties
